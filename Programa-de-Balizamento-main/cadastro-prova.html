@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Provas</title>
+    <link rel="stylesheet" href="css-temp/style.css">
+</head>
+<body>
+    <header>
+        <h1>Cadastrar e Gerenciar Provas</h1>
+        <a href="index.html">Voltar para o Início</a>
+    </header>
+    <main>
+        <div class="form-section">
+            <h2>Cadastrar Nova Prova</h2>
+            <form id="form-prova">
+                <div class="form-group">
+                    <label for="nome-prova">Nome da Prova (ex: 50m Livre):</label>
+                    <input type="text" id="nome-prova" required>
+                </div>
+                <div class="form-group">
+                    <label>Restringir para as categorias:</label>
+                    <div id="categorias-checkboxes">
+                        </div>
+                </div>
+                <button type="submit">Salvar Prova</button>
+            </form>
+        </div>
+
+        <hr> <div class="management-section">
+            <h2>Ordem das Provas</h2>
+            <p>Arraste as provas para cima ou para baixo para definir a ordem. Clique em "Salvar Ordem" para gravar.</p>
+            <div class="botoes-acao">
+                <button id="salvar-ordem-btn">Salvar Ordem</button>
+                <button id="remover-todas-provas-btn" class="btn-perigo">Remover Todas as Provas</button>
+            </div>
+            <div id="lista-provas-container">
+                </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    
+    <script src="js-temp/database.js"></script>
+    <script src="js-temp/provas.js"></script>
+</body>
+</html>

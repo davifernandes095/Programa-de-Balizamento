@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Atletas</title>
+    <link rel="stylesheet" href="css-temp/style.css">
+</head>
+<body>
+    <header>
+        <h1>Cadastrar Atleta</h1>
+        <a href="index.html">Voltar para o Início</a>
+    </header>
+    <main>
+        <form id="form-atleta">
+            <div class="form-group">
+                <label for="nome-atleta">Nome do Atleta:</label>
+                <input type="text" id="nome-atleta" required>
+            </div>
+            <div class="form-group">
+                <label for="clube-atleta">Clube:</label>
+                <input type="text" id="clube-atleta" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Sexo:</label>
+                <div class="radio-group">
+                    <input type="radio" id="sexo-masculino" name="sexo" value="Masculino" required>
+                    <label for="sexo-masculino">Masculino</label>
+                    <input type="radio" id="sexo-feminino" name="sexo" value="Feminino">
+                    <label for="sexo-feminino">Feminino</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ano-nascimento">Ano de Nascimento:</label>
+                <input type="number" id="ano-nascimento" min="1950" max="2025" required>
+            </div>
+            <div class="form-group">
+                <label>Categoria:</label>
+                <span id="categoria-display">Preencha o ano de nascimento</span>
+            </div>
+            <div class="form-group">
+                <label for="prova-select">Prova:</label>
+                <select id="prova-select" required>
+                    <option value="">Selecione uma prova</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="melhor-tempo">Melhor Tempo (ex: 00:58.32):</label>
+                <input type="text" id="melhor-tempo" placeholder="MM:SS.ms" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </main>
+    <script src="js-temp/database.js"></script>
+    <script src="js-temp/main.js"></script>
+</body>
+</html>

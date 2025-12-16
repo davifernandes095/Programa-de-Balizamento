@@ -1,0 +1,327 @@
+/* css/style.css */
+
+/* --- ESTILOS GERAIS --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #005f73;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    float: right;
+    margin-top: -2rem;
+}
+
+.main-menu {
+    display: flex;
+    justify-content: center;
+    background-color: #0a9396;
+    padding: 0.5rem;
+}
+
+.menu-button {
+    background-color: #94d2bd;
+    color: #001219;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: #e9d8a6;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- FORMULÁRIOS --- */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#categoria-display {
+    font-weight: bold;
+    color: #005f73;
+}
+
+#categorias-checkboxes div {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Estilos para os botões de rádio de sexo */
+.radio-group label {
+    font-weight: normal;
+    margin-right: 15px;
+}
+.radio-group input {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* --- BOTÕES --- */
+button {
+    background-color: #0a9396;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005f73;
+}
+
+.botoes-acao {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.botoes-fixos {
+    /* Usado na página de resultados */
+}
+
+.btn-perigo {
+    background-color: #d9534f; /* Vermelho */
+    color: white;
+}
+
+.btn-perigo:hover {
+    background-color: #c9302c;
+}
+
+.btn-remover-atleta, .btn-remover-prova {
+    background-color: #f0ad4e; /* Laranja/Amarelo */
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-remover-atleta:hover, .btn-remover-prova:hover {
+    background-color: #ec971f;
+}
+
+/* --- LAYOUT DE PROVAS E TABELAS --- */
+.prova-section {
+    margin-bottom: 2rem;
+}
+
+/* Esconde as provas vazias (placeholders) da visualização normal na tela */
+.prova-section.placeholder {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    background-color: #94d2bd;
+    color: #001219;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 2rem 0;
+}
+
+/* Estilo para os inputs de tempo na tabela de resultados */
+.tempo-resultado-input {
+    width: 120px; 
+}
+
+/* --- DRAG AND DROP (SORTABLE) --- */
+#lista-provas-tbody tr {
+    cursor: grab;
+}
+
+#lista-provas-tbody tr:active {
+    cursor: grabbing;
+}
+
+/* Faz o título da série parecer "agarrável" */
+.serie-titulo-arrastavel {
+    cursor: grab;
+}
+
+.serie-titulo-arrastavel:active {
+    cursor: grabbing;
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+    background-color: #c8ebfb;
+}
+
+.sortable-chosen {
+    opacity: 1 !important;
+}
+
+/* --- ESTILO: INPUT DE NÚMERO DA PROVA (TELA) --- */
+.input-numero-prova {
+    font-size: inherit;
+    font-family: inherit;    
+    font-weight: bold;       
+    color: inherit;          
+    width: 45px !important;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    margin: 0 5px;           
+    padding: 0;              
+    display: inline-block;
+    vertical-align: middle;  
+}
+
+.input-numero-prova:focus {
+    border-color: #0a9396;
+    outline: none;
+    box-shadow: 0 0 3px rgba(10, 147, 150, 0.3);
+}
+
+/* Remove setinhas do input number */
+.input-numero-prova::-webkit-outer-spin-button,
+.input-numero-prova::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input-numero-prova[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Ajuste para alinhar o texto do título */
+.prova-section h3 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+/* --- ESTILO: SPAN ESPELHO (ESCONDIDO NA TELA) --- */
+.numero-print {
+    display: none; /* Não aparece na tela, só o input aparece */
+}
+
+
+/* ######################################################## */
+/* ### REGRAS DE IMPRESSÃO / PDF (BLOCO FINAL)      ### */
+/* ######################################################## */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 1cm;
+    }
+
+    /* Ocultar elementos desnecessários */
+    body > header, .main-menu, .botoes-acao, .botoes-fixos, hr,
+    .form-section, form, .btn-remover-atleta, .btn-remover-prova, 
+    .coluna-acao, .management-section h2, .management-section p, .entrada-container {
+        display: none !important;
+    }
+
+    /* Layout Principal */
+    main {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    /* Tabelas */
+    table, th, td {
+        border: 1px solid #000;
+        color: #000;
+        font-size: 10pt; 
+    }
+    thead {
+        background-color: #ddd !important; 
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact;
+    }
+
+    /* Quebras de página */
+    .prova-section, table, .prova-bloco {
+        page-break-inside: avoid;
+    }
+    h3, h4 {
+        page-break-after: avoid;
+        color: #000 !important;
+    }
+    .prova-section.placeholder {
+        display: block;
+    }
+    #resultados-finais-container, .classificacao-container, .prova-bloco {
+        display: block !important;
+    }
+
+    /* --- A MÁGICA DO NÚMERO (CORREÇÃO DO ESPAÇO) --- */
+    
+    /* 1. Esconde totalmente o INPUT na impressão */
+    .input-numero-prova {
+        display: none !important;
+    }
+
+    /* 2. Mostra o SPAN (Texto puro) na impressão */
+    .numero-print {
+        display: inline-block !important;
+        margin: 0 5px; /* Pequeno espaço entre "Prova" e o número */
+        color: #000;
+        font-weight: bold;
+    }
+    
+    /* Garante alinhamento de texto normal */
+    .prova-section h3 {
+        display: block;
+        align-items: baseline;
+    }
+}
