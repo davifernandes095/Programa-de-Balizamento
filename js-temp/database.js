@@ -1,4 +1,4 @@
-// /js/database.js (VERSÃO FINAL LIMPA)
+// /js/database.js (VERSÃO COM FUNÇÃO DE EDITAR)
 
 function getCategoriaPorAno(anoNascimento) {
     const ano = parseInt(anoNascimento, 10);
@@ -54,59 +54,48 @@ function removerAtleta(atletaId) {
 function removerTodosAtletas() {
     localStorage.removeItem('atletas');
 }
-// ## FUNÇÕES NOVAS PARA GERENCIAR PROVAS ADICIONADAS ABAIXO ##
 
-/**
- * Remove uma prova específica do localStorage pelo seu ID.
- * @param {number} provaId O ID da prova a ser removida.
- */
+// --- FUNÇÕES DE GERENCIAMENTO DE PROVAS ---
+
 function removerProva(provaId) {
     let provas = getProvas();
-    // Filtra a lista, mantendo apenas as provas cujo ID NÃO é o que queremos remover.
     const provasAtualizadas = provas.filter(prova => Number(prova.id) !== Number(provaId));
-    // Salva a nova lista (sem a prova removida) de volta no localStorage.
     localStorage.setItem('provas', JSON.stringify(provasAtualizadas));
 }
 
-/**
- * Remove TODAS as provas do localStorage.
- */
 function removerTodasProvas() {
-    // Simplesmente remove a chave 'provas' do localStorage.
     localStorage.removeItem('provas');
 }
-// ## FUNÇÕES NOVAS PARA ORDENAÇÃO DE PROVAS ##
 
-/**
- * Salva a ordem personalizada das provas no localStorage.
- * @param {Array<string>} ordemIds Um array com os IDs das provas na ordem desejada.
- */
 function salvarOrdemDasProvas(ordemIds) {
     localStorage.setItem('provas_ordem', JSON.stringify(ordemIds));
 }
 
-/**
- * Retorna a ordem personalizada das provas.
- * @returns {Array<string>} Um array com os IDs das provas na ordem salva.
- */
 function getOrdemDasProvas() {
     return JSON.parse(localStorage.getItem('provas_ordem')) || [];
 }
-/**
- * Retorna todos os resultados salvos.
- * @returns {Array<Object>} Um array com os objetos de resultado.
- */
+
 function getResultados() {
     return JSON.parse(localStorage.getItem('resultados')) || [];
 }
 
-/**
- * Salva os resultados de uma prova específica.
- * Ele mescla os novos resultados com os já existentes.
- * @param {Array<Object>} novosResultados - Array com os novos resultados a serem salvos.
- * @param {string} chaveProva - O identificador da prova (ex: "50m Livre|Infantil|Feminino").
- */
 function salvarResultados(todosOsResultados) {
-    // Simplesmente salva a nova lista completa no localStorage, sobrescrevendo a anterior.
     localStorage.setItem('resultados', JSON.stringify(todosOsResultados));
+}
+
+// --- NOVA FUNÇÃO PARA EDITAR ATLETA ---
+function atualizarAtleta(atletaId, novosDados) {
+    let atletas = getAtletas();
+    const index = atletas.findIndex(a => Number(a.id) === Number(atletaId));
+    
+    if (index !== -1) {
+        // Atualiza apenas os campos permitidos, mantendo o resto (como ID e Sexo)
+        atletas[index].nome = novosDados.nome;
+        atletas[index].clube = novosDados.clube;
+        atletas[index].tempo = novosDados.tempo;
+        
+        localStorage.setItem('atletas', JSON.stringify(atletas));
+        return true;
+    }
+    return false;
 }

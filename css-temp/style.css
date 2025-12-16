@@ -325,3 +325,30 @@ hr {
         align-items: baseline;
     }
 }
+
+/* ESTILO DO BOTÃO EDITAR (NOVO) */
+.btn-editar-atleta {
+    background-color: #17a2b8; /* Azul piscina */
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px; /* Espaço entre o botão editar e o remover */
+}
+.btn-editar-atleta:hover {
+    background-color: #138496;
+}
+
+/* ... (mantenha o .btn-remover-atleta e o resto) ... */
+
+/* IMPORTANTE: No bloco @media print, garanta que o botão editar também suma */
+@media print {
+    /* ... */
+    .btn-remover-atleta, .btn-remover-prova, .btn-editar-atleta, /* <-- Adicione aqui */
+    .coluna-acao {
+        display: none !important;
+    }
+    /* ... */
+}
